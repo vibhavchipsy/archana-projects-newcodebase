@@ -1,0 +1,50 @@
+<div class="login_container flt">
+    <div class="login_left">
+        <div class="login_logo_cont flt">
+            <div class="login_image flt">
+                <img src="assets/images/login-img.png" class="img-responsive" />
+            </div>
+        </div>
+
+        <div class="login_bg flt">
+            <div class="login_desc login_head flt">
+                Welcome to the School Management system
+            </div>
+            <div class="login_desc flt">
+                Please enter your credentials to access the system.
+            </div>
+        </div>
+    </div>
+    <div class="login_right">
+        <div class="login_box">
+            <div class="login_title flt">
+                <img src="assets/images/login-icon.png" />LOGIN
+            </div>
+            <form class="login_form flt" [formGroup]="loginForm">
+                <div class="form-group flt">
+                    <input type="text" class="form-control" placeholder="Username" formControlName="username" />
+                    <div *ngIf="(f['username'].touched || submitted) && f['username'].errors?.['required']"
+                        class="invalid-errors">
+                        Username is Required
+                    </div>
+                    <div *ngIf="(f['username'].touched || submitted) && f['username'].errors?.['pattern']"
+                        class="invalid-errors">
+                       Username Cannot Start With Whitespaces
+                    </div>
+                </div>
+                <div class="form-group flt">
+                    <input type="password" class="form-control" placeholder="Password" formControlName="password" />
+                     <div *ngIf="(f['password'].touched || submitted) && f['password'].errors?.['required']"
+                        class="invalid-errors">
+                        Password is Required
+                    </div>
+                </div>
+                <div class="login_check flt">
+                    <input type="checkbox" id="rememberMe1" formControlName="rememberMe" />
+                    <label for="rememberMe1">Remember My Password</label>
+                </div>
+                <button type="submit" class="login_btn flt" (click)="submit()">Login</button>
+            </form>
+        </div>
+    </div>
+</div>

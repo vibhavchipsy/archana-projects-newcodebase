@@ -1,0 +1,12 @@
+<p>student works!</p>
+<div>
+    <button class="btn btn-success" routerLink="/add-student">add Student</button>
+    <div>
+        <div *ngFor="let list of items;let i = index; trackBy: trackByFn">
+            <span>{{list.name}} - {{list.age}}</span>
+            <p>index : {{i}}</p>
+        </div>
+    </div>
+</div>
+
+<app-add-student [name]="name" (selectedInputChange)="handleInputChange($event)"></app-add-student>
